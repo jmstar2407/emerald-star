@@ -125,53 +125,72 @@
             </div> -->
         </div>
 
+
+        <!-- <div class="next_space">
+<div class="next_space_in">
+<h3 style="margin-bottom: 0.5rem;/* background: linear-gradient(130deg, #737272, #a9a9a9, #898989, #a9a9a9); */border-radius: 14px;color: #4b806d;">Me gusta cómo se siente estar contigo.</h3>
+                       
+
+<img src="./img/juntos_1.png" height="180px">
+ </div>
+</div>
+-->
+
+
+
         <!-- Footer -->
         <footer class="footer">
             <p>Hecho con <i class="fas fa-heart"></i> especialmente para ti</p>
         </footer>
     </div>
 
+
     <!-- MODAL DE RESERVA -->
     <div id="reservation-modal" class="modal reservation-modal hidden">
         <div class="modal-content">
+
+
             <div class="reservation-modal-header">
                 <h2><i class="fas fa-heart"></i> Reserva nuestra cita</h2>
                 <p class="modal-subtitle">Esta fecha tiene algo especial que quiero compartir contigo...</p>
             </div>
 
-            <div class="reservation-modal-body">
-                <div class="selected-date-section">
-                    <h3><i class="fas fa-calendar-day"></i> Fecha seleccionada</h3>
-                    <div class="date-display" id="modal-selected-date">
-                        <!-- Se llenará con JavaScript -->
+            <div style="overflow: auto;">
+                <div class="reservation-modal-body">
+                    <div class="selected-date-section">
+                        <h3><i class="fas fa-calendar-day"></i> Fecha seleccionada</h3>
+                        <div class="date-display" id="modal-selected-date">
+                            <!-- Se llenará con JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="time-selection-section">
+                        <h3><i class="fas fa-clock"></i> Elige la hora perfecta</h3>
+                        <div id="modal-time-slots" class="modal-time-slots">
+                            <!-- Las horas se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="message-section">
+                        <h3><i class="fas fa-envelope"></i> Un mensaje para ti</h3>
+                        <div class="special-message">
+                            <p>"Esta cita es especial porque será nuestro primer paso hacia algo maravilloso."</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="time-selection-section">
-                    <h3><i class="fas fa-clock"></i> Elige la hora perfecta</h3>
-                    <div id="modal-time-slots" class="modal-time-slots">
-                        <!-- Las horas se cargarán dinámicamente -->
-                    </div>
-                </div>
-
-                <div class="message-section">
-                    <h3><i class="fas fa-envelope"></i> Un mensaje para ti</h3>
-                    <div class="special-message">
-                        <p>"Esta cita es especial porque será nuestro primer paso hacia algo maravilloso."</p>
-                    </div>
+                <div class="reservation-modal-footer">
+                    <button id="confirm-reservation-btn" class="elegant-btn confirm-btn">
+                        <i class="fas fa-heart-circle-check"></i>
+                        <span>Confirmar reserva especial</span>
+                    </button>
+                    <button id="back-to-calendar" class="elegant-btn back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Volver al calendario</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="reservation-modal-footer">
-                <button id="confirm-reservation-btn" class="elegant-btn confirm-btn">
-                    <i class="fas fa-heart-circle-check"></i>
-                    <span>Confirmar reserva especial</span>
-                </button>
-                <button id="back-to-calendar" class="elegant-btn back-btn">
-                    <i class="fas fa-arrow-left"></i>
-                    <span>Volver al calendario</span>
-                </button>
-            </div>
         </div>
     </div>
 

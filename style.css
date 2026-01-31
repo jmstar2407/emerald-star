@@ -190,9 +190,9 @@ body {
 .romantic-message-box {
     position: relative;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #d5f4e6 0%, #e8f8f1 100%);
+    background: linear-gradient(135deg, #268359 0%, #136943 100%);
     border-radius: 12px;
-    border-left: 4px solid #2ecc71;
+    /* border-left: 4px solid #6b977d; */
 }
 
 .romantic-message-box i:first-child {
@@ -213,7 +213,7 @@ body {
 
 .romantic-message {
     font-size: 1.1rem;
-    color: #2c3e50;
+    color: #f1f1f1;
     font-style: italic;
     line-height: 1.5;
     margin: 0;
@@ -442,9 +442,11 @@ color: #195d45;
 
 .reservation-modal-header {
     text-align: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgba(46, 204, 113, 0.2);
+    /* margin-bottom: 1.5rem; */
+    padding: 1rem;
+    border-bottom: 2px solid rgb(40 178 98);
+    box-shadow: 0px -12px 30px 0px rgb(0 0 0);
+    background: #f7fffc;
 }
 
 .reservation-modal-header h2 {
@@ -470,6 +472,7 @@ color: #195d45;
 
 .reservation-modal-body {
     margin: 1.5rem 0;
+    padding: 0rem 1rem;
 }
 
 .selected-date-section,
@@ -574,9 +577,10 @@ color: #195d45;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    /* margin-top: 1.5rem; */
+    padding-top: 0.5rem;
     border-top: 2px solid rgba(46, 204, 113, 0.2);
+    margin: 1rem;
 }
 
 /* BOTONES ELEGANTES */
@@ -635,6 +639,25 @@ color: #195d45;
 .close-modal:hover {
     color: #e74c3c;
 }
+
+
+
+
+
+.next_space {
+    position: relative;
+    width: 100%;
+}
+
+.next_space_in {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
 
 /* FOOTER */
 .footer {
@@ -701,7 +724,7 @@ color: #195d45;
         margin: 0;
         max-width: 100%;
         width: 100%;
-        padding: 2rem;
+        padding: 0rem;
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
@@ -711,7 +734,6 @@ color: #195d45;
         flex-direction: column;
         height: 100vh;
         transition: all 0.3s ease-out;
-        overflow: auto;
     }
 
 

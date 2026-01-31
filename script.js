@@ -190,16 +190,16 @@ async function handleDayClick(day) {
         
         if (doc.exists) {
             const data = doc.data();
-            const hours = data.horas || ["7:00 PM", "8:00 PM", "8:30 PM", "9:00 PM"];
+            const hours = data.horas || ["6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM"];
             showReservationModal(day, hours);
         } else {
             // Horas por defecto
-            const defaultHours = ["7:00 PM", "8:00 PM", "8:30 PM", "9:00 PM"];
+            const defaultHours = ["6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM"];
             showReservationModal(day, defaultHours);
         }
     } catch (error) {
         console.error("Error al cargar horas:", error);
-        const defaultHours = ["7:00 PM", "8:00 PM", "8:30 PM", "9:00 PM"];
+        const defaultHours = ["6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM"];
         showReservationModal(day, defaultHours);
     }
 }
