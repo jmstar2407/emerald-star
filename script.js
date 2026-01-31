@@ -20,11 +20,11 @@ const reservationDate = document.getElementById('reservation-date');
 const reservationTime = document.getElementById('reservation-time');
 const reservationMessage = document.getElementById('reservation-message');
 
-// Datos iniciales para febrero 2025
-const FEBRUARY_2025 = {
+// Datos iniciales para febrero 2026
+const FEBRUARY_2026 = {
     month: 1,
-    year: 2025,
-    firstDay: 6 // 1 de febrero de 2025 es sábado
+    year: 2026,
+    firstDay: 0 // 1 de febrero de 2026 es domingo
 };
 
 // Mensajes románticos para mostrar
@@ -123,7 +123,7 @@ async function checkExistingReservation() {
 function showReservationInfo(reservation) {
     // Actualizar información de fecha y hora
     if (reservationDate) {
-        reservationDate.textContent = reservation.fecha || `${reservation.diaNumerico || '7'} de Febrero 2025`;
+        reservationDate.textContent = reservation.fecha || `${reservation.diaNumerico || '7'} de Febrero 2026`;
     }
     
     if (reservationTime) {
@@ -144,7 +144,7 @@ function generateCalendar() {
     calendarGrid.innerHTML = '';
     
     // Espacios vacíos para los primeros días
-    for (let i = 0; i < FEBRUARY_2025.firstDay; i++) {
+    for (let i = 0; i < FEBRUARY_2026.firstDay; i++) {
         const emptyDay = document.createElement('div');
         emptyDay.className = 'calendar-day empty';
         calendarGrid.appendChild(emptyDay);
@@ -209,7 +209,7 @@ function showReservationModal(day, hours) {
     if (!modalSelectedDate || !modalTimeSlots || !reservationModal) return;
     
     // Actualizar fecha en el modal
-    modalSelectedDate.innerHTML = `<p>${day} de Febrero</p>`;
+    modalSelectedDate.innerHTML = `<p>${day} de Febrero 2026</p>`;
     
     // Limpiar y crear slots de hora
     modalTimeSlots.innerHTML = '';
@@ -253,7 +253,7 @@ async function confirmReservation() {
     try {
         // Crear objeto de reserva
         const reservation = {
-            fecha: `${selectedDay} de Febrero 2025`,
+            fecha: `${selectedDay} de Febrero 2026`,
             hora: selectedTime,
             estado: "confirmada",
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -268,7 +268,7 @@ async function confirmReservation() {
         
         // Mostrar mensaje de confirmación
         showModal("¡Reserva Confirmada!", 
-            `Nuestra cita especial ha sido reservada para el <strong>${selectedDay} de Febrero</strong> a las <strong>${selectedTime}</strong>.<br><br>
+            `Nuestra cita especial ha sido reservada para el <strong>${selectedDay} de Febrero 2026</strong> a las <strong>${selectedTime}</strong>.<br><br>
             <span style="font-style: italic; color: #7f8c8d;">"Este momento ya está guardado en mi corazón"</span>`);
         
         // Actualizar la vista para mostrar la reserva

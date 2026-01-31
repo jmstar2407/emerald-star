@@ -73,8 +73,10 @@ body {
 /* CONTENEDOR PRINCIPAL */
 .main-container {
     position: relative;
-    max-width: 1200px;
+    max-width: 850px;
     margin-top: 220px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* SECCIÓN DE RESERVA EXISTENTE */
@@ -242,26 +244,39 @@ body {
 
 .section-header {
     text-align: center;
-    margin-bottom: 2rem;
-    background: #38755f;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 32px;
-    box-shadow: inset -226px -75px 24px -26px rgb(24 91 69);
+    /* margin-bottom: 2rem; */
+    /* background: #38755f; */
+    margin: 0.5rem 0rem;
+    /* padding: 0rem 2rem; */
+    /* border-radius: 32px; */
+    /* box-shadow: inset -226px -75px 24px -26px rgb(24 91 69); */
 }
 
 .tittle_1 {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
-    background: #185b45;
-    border-radius: 32px;
-    margin: 1rem 2rem;
+    /* border-radius: 32px; */
+    /* margin: 1rem 2rem; */
+    width: 100%;
 }
 
 .tittle_1 img {
-    position: absolute;
+    position: relative;
     height: 72px;
+}
+
+.tittle_in {
+    background: #185c45;
+    background: linear-gradient(130deg, #3c9174, #2a7d61, #0f553d, #126548, #3c8d71);
+    width: 100%;
+    padding: 5px;
+    margin: 1rem;
+    border-radius: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -273,8 +288,8 @@ color: #ffffff;
 }
 
 .section-header p {
-    color: #7f8c8d;
-    font-size: 1.1rem;
+    color: #cfcfcf;
+    font-size: 0.8rem;
     font-style: italic;
 }
 
@@ -451,7 +466,6 @@ color: #195d45;
     font-size: 1rem;
     color: #7f8c8d;
     font-style: italic;
-    line-height: 1.4;
 }
 
 .reservation-modal-body {
@@ -683,9 +697,26 @@ color: #195d45;
     }
 
     .reservation-modal .modal-content {
-        padding: 1.5rem;
-        margin: 0 10px;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+        padding: 2rem;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        transition: all 0.3s ease-out;
+        overflow: auto;
     }
+
+
+
+
 }
 
 @media (max-width: 480px) {
