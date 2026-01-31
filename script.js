@@ -29,11 +29,8 @@ const FEBRUARY_2026 = {
 
 // Mensajes románticos para mostrar
 const romanticMessages = [
-    "Los mejores momentos no se planifican, simplemente suceden cuando dos corazones laten al mismo ritmo",
-    "Esta fecha quedará marcada en mi corazón como el inicio de algo maravilloso",
-    "Algunos días son especiales porque están hechos para ser compartidos contigo",
-    "El tiempo pasa, pero los momentos especiales con personas especiales permanecen para siempre",
-    "Esta reserva no es solo para una cita, es para el comienzo de nuestra historia"
+    "No eres solo alguien con quien paso el tiempo. Eres alguien con quien el tiempo vale más. Te has convertido en mi persona favorita 💚",
+    "El tiempo pasa, pero los momentos especiales con personas especiales permanecen para siempre"
 ];
 
 // Inicialización de la aplicación
