@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Cita Especial</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Raleway:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- PORTADA CON IMAGEN Y TEXTO (350px height) -->
+    <div class="cover-section">
+        <div class="cover-overlay"></div>
+        <div class="cover-content">
+            <img src="./img/corazon_1.png" height="180px">
+            <!-- <div class="cover-text-container">
+                <h1 class="cover-title">Cada día contigo es un capítulo especial</h1> -->
+            <!-- <p class="cover-subtitle">Reservemos un momento único para escribir nuestra historia</p> -->
+        </div>
+    </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-container">
+        <!-- Información de reserva existente (si hay) -->
+        <div id="reservation-info" class="reservation-info hidden">
+            <div class="reservation-card">
+                <div class="reservation-icon">
+                    <i class="fas fa-heart-circle-check"></i>
+                </div>
+                <h3>Este momento ya fue reservado con amor 💚</h3>
+
+                <div class="reservation-details">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-day"></i>
+                        <div>
+                            <span class="detail-label">Fecha especial</span>
+                            <span id="reservation-date" class="detail-value">Cargando...</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="detail-label">Hora perfecta</span>
+                            <span id="reservation-time" class="detail-value">Cargando...</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <span class="detail-label">Estado</span>
+                            <span class="detail-value confirmed">Confirmada con amor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="romantic-message-box">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="romantic-message" id="reservation-message">
+                        "Los mejores momentos no se planifican, simplemente suceden cuando dos corazones laten al mismo
+                        ritmo"
+                    </p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendario para reservar (si no hay reserva) -->
+        <div id="calendar-section" class="calendar-section">
+            <div class="tittle_1">
+                <img src="./img/rosa_1.png">
+                <div class="section-header">
+                    <h2>Reservació para cita</h2>
+                    <p>Eligie un día de los destacados</p>
+                </div>
+                <img src="./img/rosa_1.png">
+            </div>
+
+            <div class="calendar-wrapper">
+                <div class="calendar-header">
+                    <h3>Febrero 2026</h3>
+                    <div class="calendar-days-header">
+                        <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span>
+                        <span>Jue</span><span>Vie</span><span>Sáb</span>
+                    </div>
+                </div>
+                <div id="calendar" class="calendar-grid">
+                    <!-- Los días se generarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+
+            <!-- <div class="calendar-instructions">
+                <i class="fas fa-hand-pointer"></i>
+                <p>Haz clic en un día disponible para reservar nuestro momento especial</p>
+            </div> -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Hecho con <i class="fas fa-heart"></i> especialmente para ti</p>
+        </footer>
+    </div>
+
+    <!-- MODAL DE RESERVA -->
+    <div id="reservation-modal" class="modal reservation-modal hidden">
+        <div class="modal-content">
+            <div class="reservation-modal-header">
+                <h2><i class="fas fa-heart"></i> Reserva nuestra cita</h2>
+                <p class="modal-subtitle">Esta fecha tiene algo especial que quiero compartir contigo...</p>
+            </div>
+
+            <div class="reservation-modal-body">
+                <div class="selected-date-section">
+                    <h3><i class="fas fa-calendar-day"></i> Fecha seleccionada</h3>
+                    <div class="date-display" id="modal-selected-date">
+                        <!-- Se llenará con JavaScript -->
+                    </div>
+                </div>
+
+                <div class="time-selection-section">
+                    <h3><i class="fas fa-clock"></i> Elige la hora perfecta</h3>
+                    <div id="modal-time-slots" class="modal-time-slots">
+                        <!-- Las horas se cargarán dinámicamente -->
+                    </div>
+                </div>
+
+                <div class="message-section">
+                    <h3><i class="fas fa-envelope"></i> Un mensaje para ti</h3>
+                    <div class="special-message">
+                        <p>"Esta cita es especial porque será nuestro primer paso hacia algo maravilloso."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reservation-modal-footer">
+                <button id="confirm-reservation-btn" class="elegant-btn confirm-btn">
+                    <i class="fas fa-heart-circle-check"></i>
+                    <span>Confirmar reserva especial</span>
+                </button>
+                <button id="back-to-calendar" class="elegant-btn back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al calendario</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mensajes -->
+    <div id="generic-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
