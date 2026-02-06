@@ -29,8 +29,9 @@ const FEBRUARY_2026 = {
 
 // Mensajes románticos para mostrar
 const romanticMessages = [
-    "No eres solo alguien con quien paso el tiempo. Eres alguien con quien el tiempo vale más. Te has convertido en mi persona favorita 💚",
-    "El tiempo pasa, pero los momentos especiales con personas especiales permanecen para siempre"
+    /*"No eres solo alguien con quien paso el tiempo. Eres alguien con quien el tiempo vale más. Te has convertido en mi persona favorita 💚",
+    "El tiempo pasa, pero los momentos especiales con personas especiales permanecen para siempre" */
+    "Te extraño mucho, pero sé que no soy tu prioridad y que quizas lo que sentías por mi se fué, por eso mejor me alejo y te dejo en paz (con el dolor de mi alma)."
 ];
 
 // Inicialización de la aplicación
@@ -334,6 +335,7 @@ function showModal(title, content) {
     
     modal.classList.remove('hidden');
 }
+
 
 
 
