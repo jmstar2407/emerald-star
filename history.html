@@ -28,7 +28,7 @@ button{font:inherit;cursor:pointer}
 .favicon img{width:21px;height:21px;object-fit:contain}
 .favicon span{font-size:17px;color:#a9b8d0}
 .main{min-width:0}
-.titleline strong{display:block;font-size:14px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.titleline{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.titleline strong{display:block;font-size:14px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tag{font-size:9px;letter-spacing:.07em;font-weight:900;padding:2px 6px;border-radius:5px}.incog{background:#3b2943;color:#f0b8ff;border:1px solid #71447d}
 .domain{font-size:12px;color:#a7b5cc;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .url{font-size:11px;color:#71839e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
 .meta{text-align:right;white-space:nowrap;color:#aab6ca;font-size:12px}
@@ -93,7 +93,7 @@ function render(){
  for(const e of list){const k=dateLabel(stamp(e));if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e)}
  $('historyList').innerHTML=[...groups].map(([day,items])=>`<div class="day">${esc(day)}</div><div class="list-card">${items.map(e=>{
   const url=safeUrl(e.url),search=e.type==='search'&&e.searchQuery,title=search?e.searchQuery:(e.title||e.domain||e.url||'Página visitada'),domain=e.domain||safeHost(e.url),ico=favicon(e);
-  return `<article class="entry"><div class="favicon">${ico?`<img src="${esc(ico)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span>↗</span>'">`:'<span>↗</span>'}</div><div class="main"><div class="titleline"><strong title="${esc(title)}">${esc(title)}</strong></div><div class="domain">${esc(domain||'')}</div><div class="url">${esc(e.url||'')}</div></div><div class="meta"><span class="mdate">${esc(dateShort(stamp(e)))}</span><span class="mtime">${esc(timeLabel(stamp(e)))}</span><small>${url?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Abrir ↗</a>`:'URL no disponible'}</small></div></article>`
+  return `<article class="entry"><div class="favicon">${ico?`<img src="${esc(ico)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span>↗</span>'">`:'<span>↗</span>'}</div><div class="main"><div class="titleline">${e.incognito===true?'<span class="tag incog">◉ INCÓGNITO</span>':''}<strong title="${esc(title)}">${esc(title)}</strong></div><div class="domain">${esc(domain||'')}</div><div class="url">${esc(e.url||'')}</div></div><div class="meta"><span class="mdate">${esc(dateShort(stamp(e)))}</span><span class="mtime">${esc(timeLabel(stamp(e)))}</span><small>${url?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Abrir ↗</a>`:'URL no disponible'}</small></div></article>`
  }).join('')}</div>`).join('');
  $('loadMore').classList.toggle('hidden',!hasMore);
 }
