@@ -32,8 +32,8 @@ button{font:inherit;cursor:pointer}
 .domain{font-size:12px;color:#a7b5cc;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .url{font-size:11px;color:#71839e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
 .meta{text-align:right;white-space:nowrap;color:#aab6ca;font-size:12px}
-.meta .datetime{display:flex;flex-direction:column;align-items:inherit;line-height:1.35}
-.meta .entry-date{color:#8492a8;font-size:10px;margin-bottom:2px}
+.meta span{display:block}
+.meta .mdate{font-size:11px;color:#8492a8;margin-bottom:1px}
 .meta small{display:block;color:#8492a8;font-size:10px;margin-top:4px}
 .meta a{color:#b8c4d8!important;text-decoration:none}
 .meta a:hover{color:#c9c0ff!important}
@@ -78,7 +78,8 @@ const $=id=>document.getElementById(id);let db,entries=[],lastDoc=null,hasMore=f
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function stamp(e){if(Number.isFinite(Number(e.clientAt)))return Number(e.clientAt);if(e.visitedAt?.toMillis)return e.visitedAt.toMillis();if(Number.isFinite(Number(e.visitedAt?.seconds)))return e.visitedAt.seconds*1000;return 0}
 function dateLabel(ms){const d=new Date(ms),n=new Date(),y=new Date();y.setDate(n.getDate()-1);const same=(a,b)=>a.toDateString()===b.toDateString();if(same(d,n))return'Hoy';if(same(d,y))return'Ayer';return new Intl.DateTimeFormat('es-DO',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d)}
-function dateShortLabel(ms){return new Intl.DateTimeFormat('es-DO',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(ms))}\nfunction timeLabel(ms){return new Intl.DateTimeFormat('es-DO',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date(ms))}
+function dateShort(ms){return new Intl.DateTimeFormat('es-DO',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(ms))}
+function timeLabel(ms){return new Intl.DateTimeFormat('es-DO',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date(ms))}
 function favicon(e){if(e.favicon&&/^(https?:|data:image\/)/i.test(e.favicon))return e.favicon;try{return 'https://www.google.com/s2/favicons?sz=64&domain='+encodeURIComponent(new URL(e.url).hostname)}catch{return ''}}
 function setStatus(s,error=false){$('status').textContent=s;$('status').classList.toggle('error',error)}
 function render(){
@@ -92,7 +93,7 @@ function render(){
  for(const e of list){const k=dateLabel(stamp(e));if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e)}
  $('historyList').innerHTML=[...groups].map(([day,items])=>`<div class="day">${esc(day)}</div><div class="list-card">${items.map(e=>{
   const url=safeUrl(e.url),search=e.type==='search'&&e.searchQuery,title=search?e.searchQuery:(e.title||e.domain||e.url||'Página visitada'),domain=e.domain||safeHost(e.url),ico=favicon(e);
-  return `<article class="entry"><div class="favicon">${ico?`<img src="${esc(ico)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span>↗</span>'">`:'<span>↗</span>'}</div><div class="main"><div class="titleline"><strong title="${esc(title)}">${esc(title)}</strong></div><div class="domain">${esc(domain||'')}</div><div class="url">${esc(e.url||'')}</div></div><div class="meta"><div class="datetime"><span class="entry-date">${esc(dateShortLabel(stamp(e)))}</span><span>${esc(timeLabel(stamp(e)))}</span></div><small>${url?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Abrir ↗</a>`:'URL no disponible'}</small></div></article>`
+  return `<article class="entry"><div class="favicon">${ico?`<img src="${esc(ico)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span>↗</span>'">`:'<span>↗</span>'}</div><div class="main"><div class="titleline"><strong title="${esc(title)}">${esc(title)}</strong></div><div class="domain">${esc(domain||'')}</div><div class="url">${esc(e.url||'')}</div></div><div class="meta"><span class="mdate">${esc(dateShort(stamp(e)))}</span><span class="mtime">${esc(timeLabel(stamp(e)))}</span><small>${url?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Abrir ↗</a>`:'URL no disponible'}</small></div></article>`
  }).join('')}</div>`).join('');
  $('loadMore').classList.toggle('hidden',!hasMore);
 }
